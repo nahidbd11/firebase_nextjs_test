@@ -1,9 +1,9 @@
 "use client";
 
 import "./globals.css";
-import { Inter } from "next/font/google";
+import { Inter, Lato, Roboto } from "next/font/google";
 import { SessionProvider } from "next-auth/react";
-const inter = Inter({ subsets: ["latin"] });
+const inter = Lato({ subsets: ["latin"], weight: ["400"] });
 
 export const metadata = {
   title: "Create Next App",

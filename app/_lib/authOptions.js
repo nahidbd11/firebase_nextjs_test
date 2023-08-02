@@ -1,5 +1,5 @@
 import CredentialsProvider from "next-auth/providers/credentials";
-import { auth, firebaseApp, firebaseConfig } from "./firebaseApp";
+import { firebaseAuth, firebaseApp, firebaseConfig } from "./firebaseApp";
 import { signInWithEmailAndPassword } from "firebase/auth";
 
 export const authOptions = {
@@ -16,7 +16,7 @@ export const authOptions = {
           //TODO: authorize with firebase
 
           const userCredential = await signInWithEmailAndPassword(
-            auth,
+            firebaseAuth,
             credentials.email,
             credentials.password
           );
@@ -30,9 +30,9 @@ export const authOptions = {
     }),
   ],
 
-  pages: {
-    signIn: "../_component/SignUp",
-  },
+  // pages: {
+  //   signIn: "../_component/SignUp",
+  // },
   callbacks: {
     async signIn({ user, account, profile, email, credentials }) {
       return true;
